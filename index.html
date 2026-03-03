@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista Interativa</title>
+    <title>Lista de Convidados</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,14 +12,18 @@
         <h1>Convidados</h1>
         
         <div class="input-group">
-            <input type="text" id="nome-input" placeholder="Digite um nome...">
-            <button onclick="adicionarNome()" id="btn-add">Adicionar</button>
+            <input type="text" id="nome-input" placeholder="Novo convidado...">
+            <button onclick="adicionarNome()" id="btn-add">Add</button>
         </div>
+
+        <button onclick="mostrarLista()" id="btn-show">Mostrar Lista Atualizada</button>
 
         <ul id="lista-convidados"></ul>
         
-        <div id="contagem-a">Nomes com 'A': <span>0</span></div>
-        <button onclick="limparLista()" id="btn-clear">Limpar Tudo</button>
+        <div id="resultado-area" style="display: none;">
+            <p id="contagem-a">Nomes com 'A': <span>0</span></p>
+            <button onclick="limparTudo()" id="btn-clear">Limpar Tudo</button>
+        </div>
     </div>
 
     <script src="script.js"></script>
