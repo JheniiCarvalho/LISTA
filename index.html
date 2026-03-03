@@ -2,15 +2,24 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Lista de Convidados</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Interativa</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="container">
-        <h1>Lista de Convidados</h1>
+        <h1>Convidados</h1>
+        
+        <div class="input-group">
+            <input type="text" id="nome-input" placeholder="Digite um nome...">
+            <button onclick="adicionarNome()" id="btn-add">Adicionar</button>
+        </div>
+
         <ul id="lista-convidados"></ul>
-        <p id="contagem-a"></p>
+        
+        <div id="contagem-a">Nomes com 'A': <span>0</span></div>
+        <button onclick="limparLista()" id="btn-clear">Limpar Tudo</button>
     </div>
 
     <script src="script.js"></script>
