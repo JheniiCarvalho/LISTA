@@ -1,86 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: #fff; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+.container { background: #1e293b; padding: 2rem; border-radius: 16px; width: 350px; border: 1px solid #334155; }
+h1 { color: #38bdf8; text-align: center; margin-bottom: 1rem; }
 
-body {
-    font-family: 'Inter', sans-serif;
-    background-color: #0f172a;
-    color: #f8fafc;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-}
+.input-group { display: flex; gap: 5px; margin-bottom: 10px; }
+input { flex: 1; padding: 10px; border-radius: 8px; border: 1px solid #334155; background: #0f172a; color: white; }
 
-.container {
-    background: #1e293b;
-    padding: 2rem;
-    border-radius: 16px;
-    width: 100%;
-    max-width: 400px;
-    border: 1px solid #334155;
-}
+button { cursor: pointer; border: none; border-radius: 8px; font-weight: 600; padding: 10px; transition: 0.3s; }
+#btn-add { background: #38bdf8; color: #0f172a; }
+#btn-show { width: 100%; background: #10b981; color: white; margin-bottom: 15px; }
+#btn-show:hover { background: #059669; }
+#btn-clear { width: 100%; background: transparent; border: 1px solid #ef4444; color: #ef4444; margin-top: 10px; }
 
-h1 { text-align: center; margin-bottom: 1.5rem; color: #38bdf8; }
-
-.input-group {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 20px;
-}
-
-input {
-    flex: 1;
-    padding: 12px;
-    border-radius: 8px;
-    border: 1px solid #334155;
-    background: #0f172a;
-    color: white;
-    outline: none;
-}
-
-button {
-    cursor: pointer;
-    border: none;
-    border-radius: 8px;
-    font-weight: 600;
-    transition: 0.2s;
-}
-
-#btn-add {
-    background: #38bdf8;
-    color: #0f172a;
-    padding: 0 15px;
-}
-
-#btn-add:hover { background: #7dd3fc; }
-
-#btn-clear {
-    width: 100%;
-    background: transparent;
-    border: 1px solid #ef4444;
-    color: #ef4444;
-    padding: 10px;
-    margin-top: 15px;
-}
-
-#btn-clear:hover { background: #ef4444; color: white; }
-
-ul { display: grid; gap: 8px; }
-
-li {
-    background: #334155;
-    padding: 10px;
-    border-radius: 6px;
-    text-align: center;
-    border-left: 4px solid #38bdf8;
-    text-transform: uppercase;
-}
-
-#contagem-a {
-    margin-top: 1.5rem;
-    text-align: center;
-    color: #94a3b8;
-}
-
+ul { list-style: none; padding: 0; margin-top: 10px; }
+li { background: #334155; padding: 8px; margin-bottom: 5px; border-radius: 5px; text-align: center; text-transform: uppercase; border-left: 4px solid #10b981; }
+#contagem-a { text-align: center; margin-top: 10px; color: #94a3b8; }
 #contagem-a span { color: #38bdf8; font-weight: bold; }
