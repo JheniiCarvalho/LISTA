@@ -1,4 +1,4 @@
-let convidados = []; // Array que guarda os nomes
+let convidados = [];
 
 function adicionarNome() {
     const input = document.getElementById("nome-input");
@@ -8,23 +8,29 @@ function adicionarNome() {
         convidados.push(nome);
         input.value = "";
         input.focus();
-        // Opcional: ocultar a lista ao adicionar um novo para forçar o clique no botão
-        document.getElementById("lista-convidados").innerHTML = "";
-        document.getElementById("resultado-area").style.display = "none";
+        
+        // Feedback visual simples: pisca o botão de mostrar
+        const btnShow = document.getElementById("btn-show");
+        btnShow.style.transform = "scale(1.02)";
+        setTimeout(() => btnShow.style.transform = "scale(1)", 200);
     }
 }
 
 function mostrarLista() {
     const listaUI = document.getElementById("lista-convidados");
-    const contagemSpan = document.querySelector("#contagem-a span");
+    const contagemASpan = document.querySelector("#contagem-a span");
+    const totalSpan = document.querySelector("#total-geral span");
     const resultadoArea = document.getElementById("resultado-area");
 
-    // Limpa a visualização anterior
     listaUI.innerHTML = "";
     let contadorA = 0;
 
-    // Loop para processar e imprimir
-    convidados.forEach(nome => {
+    if (convidados.length === 0) {
+        alert("Adicione alguns nomes primeiro!");
+        return;
+    }
+
+    convidados.forEach((nome, index) => {
         const nomeMaiusculo = nome.toUpperCase();
         
         if (nomeMaiusculo.startsWith("A")) {
@@ -32,17 +38,36 @@ function mostrarLista() {
         }
 
         const li = document.createElement("li");
-        li.textContent = nomeMaiusculo;
+        li.innerHTML = `
+            <span>${nomeMaiusculo}</span>
+            <button class="btn-remove" onclick="removerNome(${index})">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        `;
         listaUI.appendChild(li);
     });
 
-    // Atualiza contagem e mostra a área de resultados
-    contagemSpan.textContent = contadorA;
-    resultadoArea.style.display = "block";
+    contagemASpan.textContent = contadorA;
+    totalSpan.textContent = convidados.length;
+    resultadoArea.classList.remove("hidden");
+}
+
+function removerNome(index) {
+    convidados.splice(index, 1); // Remove o nome do array
+    mostrarLista(); // Atualiza a tela
+    
+    if (convidados.length === 0) {
+        limparTudo();
+    }
 }
 
 function limparTudo() {
     convidados = [];
     document.getElementById("lista-convidados").innerHTML = "";
-    document.getElementById("resultado-area").style.display = "none";
+    document.getElementById("resultado-area").classList.add("hidden");
 }
+
+// Atalho Enter
+document.getElementById("nome-input").addEventListener("keypress", (e) => {
+    if (e.key === "Enter") adicionarNome();
+});
